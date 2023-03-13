@@ -1,8 +1,8 @@
 import { WelcomeLayout } from '../layout/WelcomeLayout'
-import { Welcome1 } from '../pages/welcome1'
-import { Welcome2 } from '../pages/welcome2'
-import { Welcome3 } from '../pages/welcome3'
-import { Welcome4 } from '../pages/welcome4'
+import { Welcome1 } from '../pages/Welcome1'
+import { Welcome2 } from '../pages/Welcome2'
+import { Welcome3 } from '../pages/Welcome3'
+import { Welcome4 } from '../pages/Welcome4'
 
 export const welcomeRoutes = {
   path: 'welcome',
