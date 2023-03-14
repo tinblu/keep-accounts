@@ -1,9 +1,9 @@
-import w1 from '../assets/images/welcome1.svg'
+import w from '../assets/images/welcome1.svg'
 export const Welcome1: React.FC = () => {
   return (
-    <div>
-      <img src={w1} />
-      <h2 text-center>
+    <div text-center>
+      <img src={w} />
+      <h2 text-32px mt-48px>
         会争取 <br />
         还要会省钱
       </h2>

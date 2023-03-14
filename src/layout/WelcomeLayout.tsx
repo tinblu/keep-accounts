@@ -30,8 +30,8 @@ export const WelcomeLayout: React.FC = () => {
   return (
     <div className="bg-#135ee933" h-screen flex flex-col items-stretch pb-16px>
       <header shrink-0 text-center pt-28px>
-        <img src={logo} w-155px h-95px />
-        <h1 text="#6eb6df" text-28px>山竹记账</h1>
+        <img src={logo} w-155px h-95px mt-8px/>
+        <h1 text="#6eb6df" text-28px>蓝莓记账</h1>
       </header>
       <main shrink-1 grow-1 relative >
         {transitions((style, pathname) =>

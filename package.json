@@ -8,7 +8,8 @@
     "lint:fix": "eslint . --fix",
     "dev": "vite",
     "build": "tsc && vite build --base=/react-mangosteen-1-preview/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@react-spring/web": "9.5.5",
