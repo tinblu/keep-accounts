@@ -1,5 +1,5 @@
 import type { RouteObject } from 'react-router-dom'
-import { WelcomeLayout } from '../layout/WelcomeLayout'
+import { WelcomeLayout } from '../layouts/WelcomeLayout'
 import { Welcome1 } from '../pages/Welcome1'
 import { Welcome2 } from '../pages/Welcome2'
 import { Welcome3 } from '../pages/Welcome3'
