@@ -1,7 +1,8 @@
 import { Navigate } from 'react-router-dom'
+import { useLocalStor } from '../stores/useLocalStor'
 export const Root: React.FC = () => {
-  const hasRead = localStorage.getItem('hasReadWelcomes')
-  if (hasRead === 'yes') {
+  const { hasReadWelcomes } = useLocalStor()
+  if (hasReadWelcomes) {
     return <Navigate to="/home"/>
   } else {
     return <Navigate to="/welcome/1"/>
