@@ -1,4 +1,4 @@
-import w from '../assets/images/welcome.svg'
+import w from '../assets/images/welcome3.svg'
 export const Welcome3: React.FC = () => {
   return (
     <div text-center>

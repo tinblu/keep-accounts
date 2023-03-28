@@ -3,9 +3,10 @@ import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
 
 import { Link, useLocation, useNavigate, useOutlet } from 'react-router-dom'
-import logo from '../assets/images/logo.svg'
+import  logo from '../assets/images/水果.svg'
 import { useSwipe } from '../hooks/useSwipe'
-import { useLocalStor } from '../stores/useLocalStor'
+import { useLocalStore } from '../stores/useLocalStore'
+import '../assets/css/welcome.css'
 const linkMap: Record<string, string> = {
   '/welcome/1': '/welcome/2',
   '/welcome/2': '/welcome/3',
@@ -42,15 +43,15 @@ export const WelcomeLayout: React.FC = () => {
       nav(linkMap[location.pathname])
     }
   }, [direction, location.pathname, linkMap])
-  const { sethasReadWelcomes } = useLocalStor()
+  const { sethasReadWelcomes} = useLocalStore()
   const onSkip = () => {
     sethasReadWelcomes(true)
   }
   return (
-    <div className="bg-#135ee933" h-screen flex flex-col items-stretch pb-16px>
+    <div className="welcome" h-screen flex flex-col items-stretch pb-16px>
       <header shrink-0 text-center pt-28px>
         <img src={logo} w-155px h-95px mt-8px/>
-        <h1 text="#6eb6df" text-28px>蓝莓记账</h1>
+        <h1 text="#6eb6df" text-28px>bingo记账</h1>
       </header>
       <main shrink-1 grow-1 relative ref={main}>
         {transitions((style, pathname) =>
