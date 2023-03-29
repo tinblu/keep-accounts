@@ -1,11 +1,15 @@
 import pig from '../assets/images/小猪存钱罐.svg'
 import add from '../assets/icon/add.svg'
 import useSWR from 'swr'
-import axios from 'axios'
 import { ajax } from '../lib/ajax'
 import { Navigate } from 'react-router-dom'
+import { useTitle } from '../hooks/useTitle'
 
-export const Home: React.FC = () => {
+interface Props {
+  title: string
+}
+export const Home: React.FC<Props> = (props) => {
+  useTitle(props.title)
    const { data: meData, error: meError } = useSWR('/api/v1/me', async path => 
     (await ajax.get<Resource<User>>(path)).data.resource
   )
