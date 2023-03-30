@@ -5,7 +5,7 @@ interface Props {
 }
 export const Icon: React.FC<Props> = ({ name, className }) => {
   return (
-    <svg className={c(className, 'j-icon')}>
+    <svg className={c(className, 'j-icon')} style={{color:'#b1e1fa'}}>
       <use xlinkHref={`#${name}`}></use>
     </svg>
   )
