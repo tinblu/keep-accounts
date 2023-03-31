@@ -7,6 +7,7 @@ export default defineConfig({
   theme: {
   },
   shortcuts: {
+    'j-btn': 'h-48px w-100% bg-#accbee b-none text-white rounded-8px'
   },
   safelist: [],
   presets: [
