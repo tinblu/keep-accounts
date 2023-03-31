@@ -1,5 +1,5 @@
-import React from "react";
+import { createContext } from "react";
 
-export const menuContext = React.createContext({
+export const menuContext = createContext({
   setVisible: (visible: boolean) => {}
 })
