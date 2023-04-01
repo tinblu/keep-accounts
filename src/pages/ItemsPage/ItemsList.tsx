@@ -1,9 +1,17 @@
+import useSWRInfinite from 'swr/infinite'
+import { ajax } from '../../lib/ajax'
 interface Props {
-  items: Item[]
 }
-export const ItemsList: React.FC<Props> = ({ items }) => {
-  return (
-    <div>
+const getKey = (pageIndex: number) => {
+  return `/api/v1/items?page=${pageIndex + 1}`
+}
+export const ItemsList: React.FC<Props> = () => {
+  const { data, error } = useSWRInfinite(
+    getKey, async path => (await ajax.get<Resources<Item>>(path)).data
+  )
+  console.log(data, error)
+  const items: Item[] = []
+  return <>
     <ol >
       {items.map(item =>
         <li key={item.id} grid grid-cols="[auto_1fr_auto]" grid-rows-2 px-16px py-8px gap-x-12px
@@ -27,6 +35,5 @@ export const ItemsList: React.FC<Props> = ({ items }) => {
     <div p-16px>
       <button j-btn>加载更多</button>
     </div>
-  </div>
-  )
+  </>
 }
