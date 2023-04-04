@@ -1,9 +1,8 @@
 import { animated, useTransition } from '@react-spring/web'
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
-
+import logo from '../assets/icons/logo.svg'
 import { Link, useLocation, useNavigate, useOutlet } from 'react-router-dom'
-import  logo from '../assets/images/水果.svg'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
 import '../assets/css/welcome.css'
@@ -51,7 +50,7 @@ export const WelcomeLayout: React.FC = () => {
     <div className="welcome" h-screen flex flex-col items-stretch pb-16px>
       <header shrink-0 text-center pt-28px>
         <img src={logo} w-155px h-95px mt-8px/>
-        <h1 text="#6eb6df" text-28px>bingo记账</h1>
+        <h1 text="#7878FF" text-28px>bingo记账</h1>
       </header>
       <main shrink-1 grow-1 relative ref={main}>
         {transitions((style, pathname) =>
