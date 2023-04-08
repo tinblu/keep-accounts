@@ -33,7 +33,7 @@ export const WelcomeLayout: React.FC = () => {
     },
   })
   const main = useRef<HTMLElement>(null)
-  const { direction } = useSwipe(main, { onTouchstart: e => e.preventDefault() })
+  const { direction } = useSwipe(main)
   const nav = useNavigate()
   useEffect(() => {
     if (direction === 'left') {
@@ -45,7 +45,7 @@ export const WelcomeLayout: React.FC = () => {
   const { sethasReadWelcomes} = useLocalStore()
   const onSkip = () => {
     sethasReadWelcomes(true)
-    nav('/welcome/xxx')
+    nav('/home')
   }
   return (
     <div className="welcome" h-screen flex flex-col items-stretch pb-16px>
