@@ -9,7 +9,7 @@ export const Welcome1: React.FC = () => {
         还要会省钱
       </h2>
       <div mt-64px>
-        <Link text-32px color="#6035BF" font-bold to="/welcome/2">下一页</Link>
+        <Link text-32px color="#a5dcfa" font-bold to="/welcome/2">下一页</Link>
       </div>
     </div>
   )
