@@ -2,7 +2,7 @@ import { animated, useTransition } from '@react-spring/web'
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import logo from '../assets/icons/logo.svg'
-import { Link, useLocation, useNavigate, useOutlet } from 'react-router-dom'
+import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
 import '../assets/css/welcome.css'
@@ -45,9 +45,11 @@ export const WelcomeLayout: React.FC = () => {
   const { sethasReadWelcomes} = useLocalStore()
   const onSkip = () => {
     sethasReadWelcomes(true)
+    nav('/welcome/xxx')
   }
   return (
     <div className="welcome" h-screen flex flex-col items-stretch pb-16px>
+      <span fixed text-white top-16px right-16px text-32px onClick={onSkip}>跳过</span>
       <header shrink-0 text-center pt-28px>
         <img src={logo} w-155px h-95px mt-8px/>
         <h1 text="#7878FF" text-28px>bingo记账</h1>
@@ -61,10 +63,6 @@ export const WelcomeLayout: React.FC = () => {
           </animated.div>,
         )}
       </main>
-      <footer shrink-0 text-center text-24px text-white grid grid-cols-3 grid-rows-1>
-        <Link style={{ gridArea: '1 / 2 / 2 / 3' }} to={linkMap[location.pathname]}>下一页</Link>
-        <Link style={{ gridArea: '1 / 3 / 2 / 4' }} to="/home" onClick={onSkip}>跳过</Link>
-      </footer>
     </div>
   )
 }
