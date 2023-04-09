@@ -12,7 +12,7 @@ type Props<T> = {
 export const Tabs = <T extends string> (props:  Props<T>) =>{
   const { tabItems, value, onChange, className } = props
   return (
-    <ol className={className}  flex text-bluegray children-px-24px children-py-12px cursor-pointer>
+    <ol className={className}  flex text-bluegray children-px-24px children-py-12px >
       {
         tabItems.map(tr => <li key={tr.key} 
         className={tr.key === value ? s.selected : ''}
