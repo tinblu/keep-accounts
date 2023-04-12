@@ -1,7 +1,5 @@
-import classNames from 'classnames'
 import s from './Tabs.module.scss'
 import { ReactNode } from 'react'
-import { Gradient } from './Gradient'
 type Props<T> = {
   tabItems: {
     key: T
@@ -10,7 +8,7 @@ type Props<T> = {
   }[]
   value: T
   onChange: (key: T) => void
-  className: string
+  className?: string
 }
 export const Tabs = <T extends string> (props:  Props<T>) =>{
   const { tabItems, value, onChange, className } = props

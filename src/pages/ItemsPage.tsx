@@ -7,7 +7,7 @@ import { ItemsSummary } from "./ItemsPage/ItemsSummary"
 import { TopMenu } from "../components/TopMenu"
 import { useMenuStore } from "../stores/useMenuStore"
 import { Gradient } from "../components/Gradient"
-import { Icon } from "../components/Icon"
+import { Icon } from "../components/Icon"     
 
 export const ItemsPage: React.FC = () => {
   const [timeRange, setTimeRange] = useState<TimeRange>('thisMonth')
