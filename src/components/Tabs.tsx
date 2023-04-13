@@ -13,15 +13,15 @@ type Props<T> = {
 export const Tabs = <T extends string> (props:  Props<T>) =>{
   const { tabItems, value, onChange, className } = props
   return (
-    <div >
-      <ol className={className}  flex text-bluegray children-px-24px children-py-12px bg='#e9defa'>
+    <div flex flex-col overflow-hidden>
+      <ol className={className}  flex text-bluegray children-px-24px children-py-12px bg='#e9defa' grow-0 shrink-0 >
         {
           tabItems.map(tr => <li key={tr.key} 
           className={tr.key === value ? s.selected : ''}
           onClick={() => onChange(tr.key)}>{tr.text}</li>)
         }
       </ol>
-      <div text-center>
+      <div text-center grow-1 shrink-1 overflow-y-scroll>
         {tabItems.filter(item => item.key === value)[0].element}
       </div>
     </div>

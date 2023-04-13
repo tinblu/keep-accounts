@@ -13,17 +13,17 @@ export const ItemsPage: React.FC = () => {
   const [timeRange, setTimeRange] = useState<TimeRange>('thisMonth')
   const { visible, setVisible } = useMenuStore()
   return (
-    <div>
-        <Gradient>
-          <Topnav title="账目列表" icon={
-            <Icon name="menu"  onClick={() => setVisible(!visible)}/>
-          }/>
-        </Gradient>
-        <TimeRangePicker selected={ timeRange } onSelect={ setTimeRange }/>
-        <ItemsSummary />
-        <ItemsList />
-        <AddItemFloatButton />
-        <TopMenu visible={visible} onClickMask={() => setVisible(!visible)}/>
+    <div >
+      <Gradient>
+        <Topnav title="账目列表" icon={
+          <Icon name="menu"  onClick={() => setVisible(!visible)}/>
+        }/>
+      </Gradient>
+      <TimeRangePicker selected={ timeRange } onSelect={ setTimeRange } />
+      <ItemsSummary />
+      <ItemsList />
+      <AddItemFloatButton />
+      <TopMenu visible={visible} onClickMask={() => setVisible(!visible)}/>
     </div>
   )
 }

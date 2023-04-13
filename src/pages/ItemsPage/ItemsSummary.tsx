@@ -1,7 +1,7 @@
 export const ItemsSummary: React.FC = () => {
   return (
     <ol bg="#252A43" flex justify-between items-center m-16px rounded-8px py-12px px-16px
-      children-px-24px text-center>
+      children-px-24px text-center >
       <li text="#FE7275">
         <div>收入</div>
         <div>1000</div>
