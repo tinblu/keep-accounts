@@ -2,27 +2,27 @@ import type { RefObject } from 'react'
 import { useEffect, useRef, useState } from 'react'
 
 interface Config {
-  onTouchstart?: (event: TouchEvent) => void
-  onTouchmove?: (event: TouchEvent) => void
-  onTouchend?: (event: TouchEvent) => void
+  onTouchStart?: (e: TouchEvent) => void
+  onTouchMove?: (e: TouchEvent) => void
+  onTouchEnd?: (e: TouchEvent) => void
 }
 export const useSwipe = (elementRef: RefObject<HTMLElement>, config?: Config) => {
   const [direction, setDirection] = useState<'' | 'left' | 'right' | 'up' | 'down'>('')
   const x = useRef(-1)
   const y = useRef(-1)
-  const onTouchstart = (e: TouchEvent) => {
-    config?.onTouchstart?.(e)
+  const onTouchStart = (e: TouchEvent) => {
+    config?.onTouchStart?.(e)
     x.current = e.touches[0].clientX
     y.current = e.touches[0].clientY
   }
-  const onTouchmove = (e: TouchEvent) => {
-    config?.onTouchmove?.(e)
+  const onTouchMove = (e: TouchEvent) => {
+    config?.onTouchMove?.(e)
     const newX = e.touches[0].clientX
     const newY = e.touches[0].clientY
     const dx = newX - x.current
     const dy = newY - y.current
     if (Math.abs(dx) > Math.abs(dy)) {
-      if (Math.abs(dx) > 3) {
+      if (Math.abs(dx) < 3) {
         setDirection('')
       } else if (dx > 0) {
         setDirection('right')
@@ -37,23 +37,22 @@ export const useSwipe = (elementRef: RefObject<HTMLElement>, config?: Config) =>
       } else {
         setDirection('up')
       }
-    }  
+    }
   }
-  const onTouchend = (e: TouchEvent) => {
-    config?.onTouchend?.(e)
+  const onTouchEnd = (e: TouchEvent) => {
+    config?.onTouchEnd?.(e)
     setDirection('')
   }
   useEffect(() => {
     if (!elementRef.current) { return }
-    elementRef.current.addEventListener('touchstart', onTouchstart)
-    elementRef.current.addEventListener('touchmove', onTouchmove)
-    elementRef.current.addEventListener('touchend', onTouchend)
-
+    elementRef.current.addEventListener('touchstart', onTouchStart)
+    elementRef.current.addEventListener('touchmove', onTouchMove)
+    elementRef.current.addEventListener('touchend', onTouchEnd)
     return () => {
       if (!elementRef.current) { return }
-      elementRef.current.removeEventListener('touchstart', onTouchstart)
-      elementRef.current.removeEventListener('touchmove', onTouchmove)
-      elementRef.current.removeEventListener('touchend', onTouchend)
+      elementRef.current.removeEventListener('touchstart', onTouchStart)
+      elementRef.current.removeEventListener('touchmove', onTouchMove)
+      elementRef.current.removeEventListener('touchend', onTouchEnd)
     }
   }, [])
   return { direction }

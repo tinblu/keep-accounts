@@ -1,4 +1,4 @@
-import pig from '../assets/images/小猪存钱罐.svg'
+import pig from '../assets/images/pig.svg'
 import useSWR from 'swr'
 import { ajax } from '../lib/ajax'
 import { Navigate } from 'react-router-dom'

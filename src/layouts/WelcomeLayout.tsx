@@ -1,16 +1,15 @@
 import { animated, useTransition } from '@react-spring/web'
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import logo from '../assets/icons/logo.svg'
-import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
-import '../assets/css/welcome.css'
 const linkMap: Record<string, string> = {
   '/welcome/1': '/welcome/2',
   '/welcome/2': '/welcome/3',
   '/welcome/3': '/welcome/4',
-  '/welcome/4': '/welcome/xxx',
+  '/welcome/4': '/home',
 }
 export const WelcomeLayout: React.FC = () => {
   const animating = useRef(false)
@@ -30,10 +29,11 @@ export const WelcomeLayout: React.FC = () => {
     onRest: () => {
       animating.current = false
       setExtraStyle({ position: 'relative' })
-    },
+    }
   })
   const main = useRef<HTMLElement>(null)
   const { direction } = useSwipe(main)
+  console.log(direction)
   const nav = useNavigate()
   useEffect(() => {
     if (direction === 'left') {
@@ -42,25 +42,24 @@ export const WelcomeLayout: React.FC = () => {
       nav(linkMap[location.pathname])
     }
   }, [direction, location.pathname, linkMap])
-  const { sethasReadWelcomes} = useLocalStore()
+  const { sethasReadWelcomes } = useLocalStore()
   const onSkip = () => {
     sethasReadWelcomes(true)
-    nav('/home')
   }
   return (
-    <div className="welcome" h-screen flex flex-col items-stretch pb-16px>
-      <span fixed text-white top-16px right-16px text-32px onClick={onSkip}>跳过</span>
-      <header shrink-0 text-center pt-28px>
-        <img src={logo} w-155px h-95px mt-8px/>
-        <h1 text="#7878FF" text-28px>bingo记账</h1>
+    <div className="bg-#b29ce3" h-screen flex flex-col items-stretch pb-16px>
+      <Link fixed text-white top-16px right-16px text-32px to="/welcome/xxx">跳过</Link>
+      <header shrink-0 text-center pt-64px>
+        <img src={logo} w-64px h-69px />
+        <h1 text="#D4D4EE" text-32px>binggo记账</h1>
       </header>
-      <main shrink-1 grow-1 relative ref={main}>
+      <main shrink-1 grow-1 relative ref={main} >
         {transitions((style, pathname) =>
           <animated.div key={pathname} style={{ ...style, ...extraStyle }} w="100%" h="100%" p-16px flex>
             <div grow-1 bg-white flex justify-center items-center rounded-8px>
               {map.current[pathname]}
             </div>
-          </animated.div>,
+          </animated.div>
         )}
       </main>
     </div>
