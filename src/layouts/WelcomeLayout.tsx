@@ -48,7 +48,7 @@ export const WelcomeLayout: React.FC = () => {
   }
   return (
     <div className="bg-#b29ce3" h-screen flex flex-col items-stretch pb-16px>
-      <Link fixed text-white top-16px right-16px text-32px to="/welcome/xxx">跳过</Link>
+      <Link fixed text-white top-16px right-16px text-32px to="/home">跳过</Link>
       <header shrink-0 text-center pt-64px>
         <img src={logo} w-64px h-69px />
         <h1 text="#D4D4EE" text-32px>binggo记账</h1>
