@@ -25,14 +25,14 @@ export const TopMenu: React.FC<Props> = (props) =>{
     transform: visible ? 'translateX(0%)' : 'translateX(-100%)',
     config: { duration: 500 }
   })
-  const x = {
+  const maskStyles2 = {
     ...maskStyles,
     visibility: (maskVisible ? 'visible' : 'hidden') as 'visible' | 'hidden'
   }
   return (
     <>
       <animated.div fixed top-0 left-0 w="100%" h="100%" className="bg-black:75" z="[calc(var(--z-menu)-1)]"
-        onClick={onClickMask} style={x}/>
+        onClick={onClickMask} style={maskStyles2}/>
       <animated.div fixed top-0 left-0 w="70vw" max-w-20em h-screen flex flex-col z="[var(--z-menu)]"
         style={menuStyles}>
         <CurrentUser className="grow-0 shrink-0" />
